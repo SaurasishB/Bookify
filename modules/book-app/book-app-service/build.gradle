@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:book-app:book-app-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../book-app-api/src/main/java"
+}
+
+group = "com.liferay.bookify"

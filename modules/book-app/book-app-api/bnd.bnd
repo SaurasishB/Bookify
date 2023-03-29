@@ -1,0 +1,10 @@
+Bundle-Name: book-app-api
+Bundle-SymbolicName: com.liferay.bookify.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.bookify.exception,\
+	com.liferay.bookify.model,\
+	com.liferay.bookify.service,\
+	com.liferay.bookify.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../book-app-service/service.xml

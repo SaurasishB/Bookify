@@ -1,0 +1,4 @@
+Bundle-Name: book-web
+Bundle-SymbolicName: com.liferay.bookify.web
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.bookify.web.constants

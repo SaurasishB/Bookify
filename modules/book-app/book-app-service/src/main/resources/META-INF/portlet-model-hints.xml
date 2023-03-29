@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.bookify.model.Book">
+		<field name="bookId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="readerName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="bookName" type="String" />
+		<field name="bookAuthor" type="String" />
+		<field name="bookPublicationDate" type="Date" />
+		<field name="readerId" type="long" />
+	</model>
+	<model name="com.liferay.bookify.model.Reader">
+		<field name="readerId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="readerName" type="String" />
+		<field name="createDate" type="Date" />
+	</model>
+</model-hints>

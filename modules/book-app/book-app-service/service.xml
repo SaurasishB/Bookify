@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.liferay.bookify">
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <namespace>Bookify</namespace>
+    <entity name="Book" local-service="true" remote-service="true">
+
+    	<!-- PK fields -->
+        <column name="bookId" type="long" primary="true"></column>
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="readerName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+        <column name="bookName" type="String"></column>
+        <column name="bookAuthor" type="String"></column>
+        <column name="bookPublicationDate" type="Date"></column>
+        <column name="readerId" type="long"></column>
+        
+        <!-- order -->
+        <order by="asc">
+        	<order-column name="bookName"/>
+        </order>
+        
+        <!-- finder -->
+        <finder return-type="Collection" name="AuthorName">
+        	<finder-column name="bookAuthor"></finder-column>
+        </finder>
+        <finder return-type="Collection" name="BookName">
+        	<finder-column name="bookName"></finder-column>
+        </finder>
+        <finder return-type="Collection" name="ReaderName">
+        	<finder-column  name="readerName"></finder-column>
+        </finder>
+        
+        
+        <!-- Reference to group entity service  -->
+        <reference entity="Group" package-path="com.liferay.portal"></reference>
+        
+        <!-- Entity service needed for interation to Asset framework -->
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
+    </entity>
+    
+    <entity name="Reader" local-service="true" remote-service="true">
+
+    	<!-- PK fields -->
+
+    	<column name="readerId" primary="true" type="long"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId"  type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="readerName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	
+    	<!-- order -->
+        <order by="asc">
+        	<order-column name="readerName"/>
+        </order>
+        
+        <!-- finder -->
+        <finder return-type="Reader" name="ReaderId">
+        	<finder-column name="readerId"></finder-column>
+        </finder>
+      
+        
+         <!-- Reference to group entity service  -->
+        <reference entity="Group" package-path="com.liferay.portal"></reference>
+        
+        <!-- Entity service needed for interation to Asset framework -->
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset"></reference>
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset"></reference>
+    </entity>
+</service-builder>
